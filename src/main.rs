@@ -7,7 +7,7 @@ struct GameState{
     user_input: Vec<usize>
 }
 
-fn mark_spot_for_ai(mut game_state: GameState) -> GameState{
+fn turn_ai(mut game_state: GameState) -> GameState{
     
     let mut rng = rand::thread_rng();
 
@@ -32,7 +32,7 @@ fn mark_spot_for_ai(mut game_state: GameState) -> GameState{
 
 }
 
-fn mark_spot_for_user(mut game_state: GameState) -> GameState{
+fn turn_user(mut game_state: GameState) -> GameState{
     
     let mut mark_is_valid = false;
 
@@ -129,8 +129,8 @@ fn main() {
     while game_state.game_over != true{
 
         display_game_board(game_state.game_board);
-        game_state = mark_spot_for_user(game_state);
-        game_state = mark_spot_for_ai(game_state);
+        game_state = turn_user(game_state);
+        game_state = turn_ai(game_state);
     }
 
     
