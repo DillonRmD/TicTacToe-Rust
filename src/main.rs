@@ -16,12 +16,12 @@ fn mark_spot_for_ai(mut game_state: GameState) -> GameState{
 
     while mark_is_valid != true{
 
-        let ai_col_input: usize = rng.gen_range(0..4);
-        let ai_row_input: usize = rng.gen_range(0..4);
+        let ai_col_input: usize = rng.gen_range(0..3);
+        let ai_row_input: usize = rng.gen_range(0..3);
 
         let j = ai_col_input;
         let i = ai_row_input;
-
+        
         if game_state.game_board[i][j] == 0 {
             game_state.game_board[i][j] = 2;
             mark_is_valid = true;
